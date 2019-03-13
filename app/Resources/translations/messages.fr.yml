@@ -1,0 +1,58 @@
+listLoca: 'Toutes les annonces'
+newloca: 'Proposer une annonce'
+projet: 'Le projet'
+titre.users: 'Liste des utilisateurs'
+locAdr: Adresse
+locVille: Ville
+loccp: 'Code postal'
+locLoyerCcM: 'Loyer mensuel charges comprises'
+locCharges: 'Charges mensuelles'
+locSurfaceBalcon: 'Surface du balcon/terrasse (m²)'
+locSurfaceTot: 'Surface totale (m²)'
+locAnneeConst: 'Année de construction'
+locEtage: Etage
+locnbPiece: 'Nombre de pièces'
+locnbChambre: 'Nombre de chambres disponibles'
+locToiletteSep: 'Toilette sépraées'
+locCuisineEqui: 'Cuisine éaquipée'
+locMeuble: Meublé
+locNbParking: 'Nombre de parking disponible'
+locInterphone: Interphone
+locAscenseur: Ascenseur
+locNormesAndicap: 'Normes handicapées'
+locDescription: Description
+boutonAjout: Ajouter
+Registration.Register.email: email
+accesRefuse: 'Accès refusé. Vous n''avez pas les droits pour acceder à cette page.'
+mon_profil: 'Mon profil'
+deconnexion: Déconnexion
+connexion: Connexion
+accueil: Accueil
+rss.description: 'Flux RSS des annonces du site.'
+oui: Oui
+non: Non
+titreRecherche: 'Rechercher dans nos annonces.'
+modifLoca: 'Modifier l''annonce'
+voirAnnonce: 'Voir l''annonce'
+aucuneAnnonceRech: 'Aucune annonce correspond à votre re cherche.'
+profile.show.email: 'Adresse email'
+profile.show.prenom: Prénom
+profile.show.nom: Nom
+profile.show.telephone: Téléphone
+mentionlegal: 'Mentions légales'
+rss.title: 'Flux RSS'
+
+infoAnnonce: 'Informations de l''annonce'
+interesseParAnnonce : "Vous êtes interessé ? Vous pouvez contacter le créateur de cette demande à l'adresse mail suivante : "
+
+titreHeader: 'Gestion Tâches'
+boutonSup: Supprimer
+boutonModif: Modifier
+creerCompt: 'Créer un compte'
+newProject: 'Ajouter un projet'
+champobli: 'champ obligatoire'
+
+title.project: 'Les Projets'
+projectManger: 'Chef de projet'
+name: 'Nom'
+description: 'Description'

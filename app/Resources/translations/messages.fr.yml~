@@ -1,0 +1,50 @@
+listLoca: 'Toutes les annonces'
+newloca: 'Proposer une annonce'
+projet: 'Le projet'
+creerCompt: 'Créer un compte'
+titre.loca: 'Les annonces'
+titre.users: 'Liste des utilisateurs'
+boutonSup: Supprimer
+boutonModif: Modifier
+locAdr: Adresse
+locVille: Ville
+loccp: 'Code postal'
+locLoyerCcM: 'Loyer mensuel charges comprises'
+locCharges: 'Charges mensuelles'
+locSurfaceBalcon: 'Surface du balcon/terrasse (m²)'
+locSurfaceTot: 'Surface totale (m²)'
+locAnneeConst: 'Année de construction'
+locEtage: Etage
+locnbPiece: 'Nombre de pièces'
+locnbChambre: 'Nombre de chambres disponibles'
+locToiletteSep: 'Toilette sépraées'
+locCuisineEqui: 'Cuisine éaquipée'
+locMeuble: Meublé
+locNbParking: 'Nombre de parking disponible'
+locInterphone: Interphone
+locAscenseur: Ascenseur
+locNormesAndicap: 'Normes handicapées'
+locDescription: Description
+boutonAjout: Ajouter
+titreHeader: 'Gestion Colocation'
+Registration.Register.email: email
+accesRefuse: 'Accès refusé. Vous n''avez pas les droits pour acceder à cette page.'
+mon_profil: 'Mon profil'
+deconnexion: Déconnexion
+connexion: Connexion
+accueil: Accueil
+rss.description: 'Flux RSS des annonces du site.'
+oui: Oui
+non: Non
+titreRecherche: 'Rechercher dans nos annonces.'
+modifLoca: 'Modifier l''annonce'
+voirAnnonce: 'Voir l''annonce'
+aucuneAnnonceRech: 'Aucune annonce correspond à votre re cherche.'
+profile.show.email: 'Adresse email'
+profile.show.prenom: Prénom
+profile.show.nom: Nom
+profile.show.telephone: Téléphone
+mentionlegal: 'Mentions légales'
+rss.title: 'Flux RSS'
+champobli: 'champ obligatoire'
+infoAnnonce: 'Informations de l''annonce'

@@ -1,0 +1,70 @@
+
+{% extends 'base.html.twig' %}
+
+{% block ariane %}
+    <div class="ariane">
+        <div class="container">
+            <ul>
+                <li>
+                    <a href="{{ path('homepage') }}">{{"accueil"|trans}}</a> /
+                </li>
+                <li>
+                    <a href="{{ path('indexProject') }}">{{"titre.loca"|trans}}</a>
+                </li>
+                <li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block headerBackground %}
+    <div class="navbarFixeDefault"></div>
+{% endblock %}
+
+{% block body %}
+
+    {% if projects %}
+
+        <h2>{{"title.project"|trans}}</h2>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>{{"name"|trans}}</th>
+                <th>{{"description"|trans}}</th>
+                <th>{{"projectManger"|trans}}</th>
+                <th class="text-right">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for project in projects %}
+                    <tr>
+                        <td>{{ project.name }}</td>
+                        <td>{{ project.description }}</td>
+                        <td>{{ project.user.username }}</td>
+                        <td class="td-actions text-right">
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <a href="#" rel="tooltip" title="Editer l'annonce" class="btn btn-success btn-simple btn-xs">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a href="#" rel="tooltip" title="Supprimer l'annonce" class="btn btn-danger btn-simple btn-xs">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            {% endif %}
+                            <a class="btn btn-primary" href="{{ path('infoProject', { 'id': project.id }) }}">{{"voirAnnonce"|trans}}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info" style="margin-top: 20px;">
+            <div class="container-fluid">
+                <div class="alert-icon">
+                    <i class="material-icons">info_outline</i>
+                </div>
+                <b>{{"aucuneAnnonceRech"|trans}}</b>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

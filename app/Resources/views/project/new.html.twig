@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block ariane %}
+  <div class="ariane">
+    <div class="container">
+      <ul>
+        <li>
+          <a href="{{ path('homepage') }}">{{"accueil"|trans}}</a> /
+        </li>
+        <li>
+          <a href="{{ path('newProject') }}">{{"newProject"|trans}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
+
+{% block headerBackground %}
+  <div class="navbarFixeDefault"></div>
+{% endblock %}
+
+{% block body %}
+    <div class="col-md-6 col-md-offset-3">
+      <h2 class="text-center">{{"newProject"|trans}}</h2>
+      <form class="form-horizontal" action="" method="post">
+        <div class="form-group label-floating">
+          <label class="control-label">Nom *</label>
+            {{form_widget(add_project_form.name, {'attr': {'class': 'form-control'}})}}
+            {{form_errors(add_project_form.name)}}
+        </div>
+        <div class="form-group label-floating">
+          <label class="control-label">Description*</label>
+          {{form_widget(add_project_form.description, {'attr': {'class': 'form-control'}})}}
+            {{form_errors(add_project_form.description)}}
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="user">Chef de projet</label>
+            <select id="project_user" name="project_user" class="form-control" >
+            <option value=""></li>
+              {% for user in users %}
+                  <option value="{{ user.id }}">{{ user.username }}</li>
+              {% endfor %}
+            </select>
+        </div>
+        {{ form_rest(add_project_form) }}
+        *{{"champobli"|trans}}
+        <div class="text-center" style="margin-bottom: 20px;"><input type="submit" class="btn btn-primary" name="ajout" value="{{"boutonAjout"|trans}}"></div>
+      </form>
+    </div>
+{% endblock %}

@@ -2,12 +2,142 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Gestion Tâches{% endblock %}</title>
+
+        <!-- Fonts and icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+        <!-- Styles -->
+        {% if app.user and app.user.theme == '2' %}
+            {% stylesheets
+                'Resources/assets/css/bootstrap.min.css'
+                'Resources/assets/css/material-kit3.css'
+                'Resources/assets/css/style3.css'
+                filter='cssrewrite' output='Resources/assets/css/compiled/app.css' %}
+                <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+            {% endstylesheets %}
+        {% elseif app.user and app.user.theme == '1' %}
+            {% stylesheets
+            'Resources/assets/css/bootstrap.min.css'
+            'Resources/assets/css/material-kit2.css'
+            'Resources/assets/css/style2.css'
+            filter='cssrewrite' output='Resources/assets/css/compiled/app.css' %}
+            <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+            {% endstylesheets %}
+        {% else %}
+            {% stylesheets
+                'Resources/assets/css/bootstrap.min.css'
+                'Resources/assets/css/material-kit.css'
+                'Resources/assets/css/style.css'
+                filter='cssrewrite' output='Resources/assets/css/compiled/app.css' %}
+                <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+            {% endstylesheets %}
+        {% endif %}
+
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    <body class="index-page">
+        {% block javascripts %}
+            {% javascripts  'Resources/assets/js/jquery.min.js'
+                            'Resources/assets/js/bootstrap.min.js'
+                            'Resources/assets/js/bootstrap-datepicker.js'
+                            'Resources/assets/js/material-kit.js'
+                            'Resources/assets/js/material.min.js'
+            %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+            <!-- Navbar -->
+            <nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-index">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="{{ path('homepage') }}">
+                            <div class="logo-container">
+                                {#<div class="logo">
+                                    <img src="assets/img/logo.png" alt="Creative Tim Logo" rel="tooltip" title="<b>Material Kit</b> was Designed & Coded with care by the staff from <b>Creative Tim</b>" data-placement="bottom" data-html="true">
+                                </div>#}
+                                <div class="brand">
+                                    {{"titreHeader"|trans}}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="navigation-index">
+                        <ul class="nav navbar-nav navbar-right">
+                            {% if app.user %}
+                                <li>
+                                    <a href="{{ path('fos_user_profile_show') }}">
+                                        <i class="material-icons">person</i>{{"mon_profil"|trans}}
+                                    </a>
+                                </li>
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <li>
+                                        <a href="{{ path('newProject') }}">
+                                            <i class="material-icons">add</i> Ajouter un projet
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                <li>
+                                    <a href="{{ path('fos_user_security_logout') }}">
+                                        <i class="material-icons">power_settings_new</i>{{"deconnexion"|trans}}
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <a href="{{ path('fos_user_security_login') }}">
+                                        <i class="material-icons">person</i>{{"connexion"|trans}}
+                                    </a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <div class="wrapper">
+                {% block headerBackground %}{% endblock %}
+                <div class="main main-raised">
+                    {% block ariane %}{% endblock %}
+
+                    <div class="container">
+                        {% block body %}{% endblock %}
+                        <!-- contenu ici suivi du footer en bas -->
+                    </div>
+                  </div>
+                <footer class="footer">
+                    <div class="container">
+                        <nav class="pull-left">
+                            <ul>
+                                <li>
+                                    <a href="{{ path('fos_user_registration_register') }}">
+                                        {{"creerCompt"|trans}}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}">Français</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">English</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="copyright pull-right">
+                            &copy; 2018 - Made by Pierre FOUILLET - Université de Nantes
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        {% endblock %}
     </body>
 </html>
+
+{% block stylesheets %}
+{% endblock %}

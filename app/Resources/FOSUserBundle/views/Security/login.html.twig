@@ -1,0 +1,23 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block ariane %}
+    <div class="ariane">
+        <div class="container">
+            <ul>
+                <li>
+                    <a href="{{ path('homepage') }}">{{"accueil"|trans}}</a> /
+                </li>
+                <li>
+                    <a href="{{ path('fos_user_security_login') }}">{{"connexion"|trans}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block fos_user_title %}Connectez vous{% endblock fos_user_title %}
+{% block fos_user_subtitle %}<a href="{{ path('fos_user_registration_register') }}">Pas encore de compte ? Inscrivez vous !</a>{% endblock fos_user_subtitle %}
+
+{% block fos_user_content %}
+    {{ include('@FOSUser/Security/login_content.html.twig') }}
+{% endblock fos_user_content %}

@@ -1,0 +1,27 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block ariane %}
+    <div class="ariane">
+        <div class="container">
+            <ul>
+                <li>
+                    <a href="{{ path('homepage') }}">{{"accueil"|trans}}</a> /
+                </li>
+                <li>
+                    <a href="{{ path('fos_user_profile_show') }}">{{"mon_profil"|trans}}</a> /
+                </li>
+                <li>
+                    <a href="{{ path('fos_user_profile_edit') }}">{{"boutonModif"|trans}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block fos_user_title %}
+    Modifier votre profil
+{% endblock fos_user_title %}
+
+{% block fos_user_content %}
+{% include "@FOSUser/Profile/edit_content.html.twig" %}
+{% endblock fos_user_content %}

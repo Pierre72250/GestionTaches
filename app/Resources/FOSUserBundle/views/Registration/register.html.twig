@@ -1,0 +1,24 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block ariane %}
+    <div class="ariane">
+        <div class="container">
+            <ul>
+                <li>
+                    <a href="{{ path('homepage') }}">Accueil</a> /
+                </li>
+                <li>
+                    <a href="{{ path('fos_user_registration_register') }}">Créer un compte</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block fos_user_title %}
+    Inscrivez vous
+{% endblock fos_user_title %}
+
+{% block fos_user_content %}
+{% include "@FOSUser/Registration/register_content.html.twig" %}
+{% endblock fos_user_content %}

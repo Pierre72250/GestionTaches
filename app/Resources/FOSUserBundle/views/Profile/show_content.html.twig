@@ -1,0 +1,17 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="fos_user_user_show">
+    {% if user.prenom %}
+        <p>{{ 'profile.show.prenom'|trans }}: {{ user.prenom }}</p>
+    {% endif %}
+    {% if user.prenom %}
+        <p>{{ 'profile.show.nom'|trans }}: {{ user.nom }}</p>
+    {% endif %}
+    {% if user.prenom %}
+        <p>{{ 'profile.show.telephone'|trans }}: {{ user.telephone }}</p>
+    {% endif %}
+    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+    <div class="text-center">
+        <a href="{{ path('fos_user_profile_edit') }}" class="btn btn-primary"><i class="material-icons">settings</i> {{"profile.edit.submit"|trans}}</a>
+    </div>
+</div>

@@ -10,7 +10,7 @@ parameters:
 
 framework:
     #esi: ~
-    #translator: { fallbacks: ['%locale%'] }
+    translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'
@@ -30,6 +30,8 @@ framework:
     assets: ~
     php_errors:
         log: true
+    templating:
+        engines: ['twig']
 
 # Twig Configuration
 twig:
@@ -66,6 +68,45 @@ swiftmailer:
     password: '%mailer_password%'
     spool: { type: memory }
 
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+        cssrewrite: ~
+
 sensio_framework_extra:
    router:
         annotations: false
+
+fos_user:
+    db_driver:     orm                       # Le type de BDD à utiliser, nous utilisons l'ORM Doctrine depuis le début
+    firewall_name: main                      # Le nom du firewall derrière lequel on utilisera ces utilisateurs
+    user_class:    AppBundle\Entity\User     # La classe de l'entité User que nous utilisons
+    use_username_form_type: false
+    use_listener:           true
+    use_flash_notifications: true
+
+    from_email:
+        address: email@email.fr
+        sender_name: gestionTache
+
+    registration:
+        confirmation:
+            enabled: false
+        form:
+            type: AppBundle\Form\RegistrationType
+
+    profile:
+        form:
+            type: AppBundle\Form\ProfileType
+
+    resetting:
+        token_ttl: 86400
+        email:
+            template:   FOSUserBundle:Resetting:email.txt.twig
+    service:
+        mailer:                 fos_user.mailer.default
+        email_canonicalizer:    fos_user.util.canonicalizer.default
+        username_canonicalizer: fos_user.util.canonicalizer.default
+        token_generator:        fos_user.util.token_generator.default
+        user_manager:           fos_user.user_manager.default

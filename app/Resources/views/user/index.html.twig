@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block ariane %}
+    <div class="ariane">
+        <div class="container">
+            <ul>
+                <li>
+                    <a href="{{ path('homepage') }}">{{"accueil"|trans}}</a> /
+                </li>
+                <li>
+                    <a href="{{ path('indexUsers') }}">{{"titre.users"|trans}}</a>
+                </li>
+                <li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block headerBackground %}
+    <div class="navbarFixeDefault"></div>
+{% endblock %}
+
+{% block body %}
+    {% if users %}
+
+        <h2>{{"titre.users"|trans}}</h2>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Status</th>
+                <th>Prenom</th>
+                <th>Nom</th>
+                <th>Telephone</th>
+                <th>eMail</th>
+                <th class="text-right">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                        <td>
+                            {% if user.enabled == true %}
+                                <i class="material-icons" style="color: #4e7f5d;">fiber_manual_record</i>
+                            {% else %}
+                                <i class="material-icons" style="color: #d60b0b;">fiber_manual_record</i>
+                            {% endif %}
+                        </td>
+                    <td>{{ user.prenom }}</td>
+                    <td>{{ user.nom }}</td>
+                    <td>{{ user.telephone }}</td>
+                    <td>{{ user.email }}</td>
+                    <td class="td-actions text-right">
+                        {% if user.enabled == true %}
+                            <a href="{{ path('desableUser', { 'id': user.id }) }}" rel="tooltip" title="Désactiver l'utilisateur" class="btn btn-danger btn-simple btn-xs">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        {% else %}
+                            <a href="{{ path('enableUser', { 'id': user.id }) }}" rel="tooltip" title="Activer l'utilisateur" class="btn btn-success btn-simple btn-xs">
+                                <i class="fa fa-check"></i>
+                            </a>
+                        {% endif %}
+
+                        <a class="btn btn-primary" href="{{ path('infoProfil', { 'id': user.id }) }}">Voir le profil</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info">
+            <div class="container-fluid">
+                <div class="alert-icon">
+                    <i class="material-icons">info_outline</i>
+                </div>
+                <b>Aucun utilisateur n'est enregistrée sur le site.</b>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

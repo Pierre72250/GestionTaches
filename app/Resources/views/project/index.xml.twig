@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+        <title>{{ 'rss.title'|trans }}</title>
+        <description>{{ 'rss.description'|trans }}</description>
+        <pubDate>{{ 'now'|date('r', timezone='GMT') }}</pubDate>
+        <lastBuildDate>{{ (locations|last).publishedAt|default('now')|date('r', timezone='GMT') }}</lastBuildDate>
+        <language>{{ app.request.locale }}</language>
+        <items>
+            {% for loc in locations %}
+                <item>
+                    <city>{{ loc.ville }}</city>
+                    <postalCode>{{ loc.codePostal }}</postalCode>
+                    <adress>{{ loc.adresse }}</adress>
+                    <description>{{ loc.description }}</description>
+                    <loyerCcM>{{ loc.loyerCcM }}</loyerCcM>
+                    <charges>{{ loc.charges }}</charges>
+                    <surface>{{ loc.balcon }}</surface>
+                    <surfaceTot>{{ loc.surfaceTot }}</surfaceTot>
+                    <anneeConst>{{ loc.anneeConst }}</anneeConst>
+                    <etage>{{ loc.etage }}</etage>
+                    <nbPiece>{{ loc.nbPiece }}</nbPiece>
+                    <nbChambre>{{ loc.nbChambre }}</nbChambre>
+                    <nbParking>{{ loc.nbParking }}</nbParking>
+                    <toilette>{{ loc.toilette }}</toilette>
+                    <cuisineEquipee>{{ loc.cuisineEquipee }}</cuisineEquipee>
+                    <meuble>{{ loc.meuble }}</meuble>
+                    <interphone>{{ loc.interphone }}</interphone>
+                    <ascenseur>{{ loc.ascenseur }}</ascenseur>
+                    <normesAndicap>{{ loc.normesAndicap }}</normesAndicap>
+                    <author>{{ loc.getuser.username }}</author>
+                </item>
+            {% endfor %}
+        </items>
+    </channel>
+</rss>

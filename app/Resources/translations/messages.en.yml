@@ -1,0 +1,52 @@
+rechloca: 'Search a roommate'
+newloca: 'Propose a roommate'
+projet: Project
+creerCompt: 'Create an account'
+titre.loca: 'The roommate list'
+boutonSup: Delete
+boutonModif: Modify
+boutonAjout: Add
+locAdr: Adress
+locVille: City
+loccp: 'Postal code'
+locLoyerCcM: 'Monthly rent with loads'
+locCharges: Loads
+locSurfaceBalcon: 'Surface of balcony/terrace (m²)'
+locSurfaceTot: 'Surface (m²)'
+locAnneeConst: 'Year of construct'
+locEtage: Stage
+locnbPiece: 'Number of rooms'
+locnbChambre: 'Number of bedrooms'
+locToiletteSep: 'Separate toilet'
+locCuisineEqui: 'Equiped kitchen'
+locMeuble: Furnished
+locNbParking: 'Number of parkings'
+locInterphone: Buzzer
+locAscenseur: Elevator
+locNormesAndicap: Handicapped
+locDescription: Description
+titreHeader: 'Gestion of roommate'
+accesRefuse: 'Access denied'
+listLoca: 'List of advertisement'
+mon_profil: 'My profil'
+deconnexion: Logout
+connexion: Login
+accueil: Homepage
+rss.title: 'RSS of website'
+rss.description: 'RSS of website'
+oui: 'Yes'
+non: 'No'
+titre.users: 'List of users'
+titreRecherche: 'Search roommate'
+voirAnnonce: 'Description of announcement'
+aucuneAnnonceRech: 'No specific announcements'
+modifLoca: 'Edit announcement'
+Registration.Register.email: email
+profile.show.email: 'Email adress'
+profile.show.prenom: Surname
+profile.show.nom: Name
+profile.show.telephone: 'Phone number'
+mentionlegal: 'General Conditions'
+champobli: 'mandatory field'
+infoAnnonce: 'Informations of announcement'
+interesseParAnnonce : "Are you interested ? Contact the author at : "

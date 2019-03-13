@@ -1,0 +1,160 @@
+{% extends 'base.html.twig' %}
+
+{% block ariane %}
+  <div class="ariane">
+    <div class="container">
+      <ul>
+        <li>
+          <a href="{{ path('homepage') }}">{{"accueil"|trans}}</a> /
+        </li>
+        <li>
+          <a href="{{ path('indexLocation') }}">{{"listLoca"|trans}}</a> /
+        </li>
+        <li>
+          <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')) }}">{{"modifLoca"|trans}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
+
+{% block headerBackground %}
+  <div class="navbarFixeDefault"></div>
+{% endblock %}
+
+{% block body %}
+  <div class="col-md-6 col-md-offset-3">
+    <h2 class="text-center">Modifier l'annonce</h2>
+    <iframe
+            width="600"
+            height="450"
+            frameborder="0" style="border:0"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAMvG5O9a6rGwDAQUcEyJ0IrjTAOIKu4xc&q={{ location.adresse }}+{{ location.ville }}" allowfullscreen>
+    </iframe>
+    <form class="form-horizontal" action="" method="post">
+      <div class="form-group label-floating">
+        <label class="control-label">{{"locAdr"|trans}}*</label>
+          {{form_widget(edit_location_form.adresse, {'attr': {'class': 'form-control'}})}}
+          {{form_errors(edit_location_form.adresse)}}
+      </div>
+      <div class="form-group label-floating">
+        <label class="control-label">{{"locVille"|trans}}*</label>
+          {{form_widget(edit_location_form.ville, {'attr': {'class': 'form-control'}})}}
+          {{form_errors(edit_location_form.ville)}}
+      </div>
+      <div class="form-group label-floating">
+        <label class="control-label">{{"loccp"|trans}}*</label>
+          {{form_widget(edit_location_form.codePostal, {'attr': {'class': 'form-control'}})}}
+          {{form_errors(edit_location_form.codePostal)}}
+      </div>
+      <div class="form-group label-floating">
+        <label class="control-label">{{"locLoyerCcM"|trans}}*</label>
+          {{form_widget(edit_location_form.loyerCcM, {'attr': {'class': 'form-control'}})}}
+          {{form_errors(edit_location_form.loyerCcM)}}
+      </div>
+      <div class="form-group label-floating">
+        <label class="control-label">{{"locCharges"|trans}}*</label>
+          {{form_widget(edit_location_form.charges, {'attr': {'class': 'form-control'}})}}
+          {{form_errors(edit_location_form.charges)}}
+      </div>
+      <div class="form-group label-floating">
+        <label class="control-label">{{"locSurfaceBalcon"|trans}}*</label>
+          {{form_widget(edit_location_form.balcon, {'attr': {'class': 'form-control'}})}}
+          {{form_errors(edit_location_form.balcon)}}
+      </div>
+      <div class="form-group label-floating">
+        <label class="control-label">{{"locSurfaceTot"|trans}}*</label>
+          {{form_widget(edit_location_form.surfaceTot, {'attr': {'class': 'form-control'}})}}
+          {{form_errors(edit_location_form.surfaceTot)}}
+      </div>
+      <div class="form-group label-floating">
+        <label class="control-label">{{"locAnneeConst"|trans}}*</label>
+          {{form_widget(edit_location_form.anneeConst, {'attr': {'class': 'form-control'}})}}
+          {{form_errors(edit_location_form.anneeConst)}}
+      </div>
+      <div class="form-group label-floating">
+        <label class="control-label">{{"locEtage"|trans}}*</label>
+          {{form_widget(edit_location_form.etage, {'attr': {'class': 'form-control'}})}}
+          {{form_errors(edit_location_form.etage)}}
+      </div>
+      <div class="form-group label-floating">
+        <label class="control-label">{{"locnbPiece"|trans}}*</label>
+          {{form_widget(edit_location_form.nbPiece, {'attr': {'class': 'form-control'}})}}
+          {{form_errors(edit_location_form.nbPiece)}}
+      </div>
+      <div class="form-group label-floating">
+        <label class="control-label">{{"locnbChambre"|trans}}*</label>
+          {{form_widget(edit_location_form.nbChambre, {'attr': {'class': 'form-control'}})}}
+          {{form_errors(edit_location_form.nbChambre)}}
+      </div>
+      <div class="form-group label-floating">
+        <label class="control-label">{{"locNbParking"|trans}}*</label>
+          {{form_widget(edit_location_form.nbParking, {'attr': {'class': 'form-control'}})}}
+          {{form_errors(edit_location_form.nbParking)}}
+      </div>
+      <div class="form-group">
+        <div class="checkbox">
+          <label>
+              {{form_widget(edit_location_form.toilette)}}
+              {{"locToiletteSep"|trans}}
+          </label>
+        </div>
+          {{form_errors(edit_location_form.toilette)}}
+      </div>
+      <div class="form-group">
+        <div class="checkbox">
+          <label>
+              {{form_widget(edit_location_form.cuisineEquipee)}}
+              {{"locCuisineEqui"|trans}}
+          </label>
+        </div>
+          {{form_errors(edit_location_form.cuisineEquipee)}}
+      </div>
+      <div class="form-group">
+        <div class="checkbox">
+          <label>
+              {{form_widget(edit_location_form.meuble)}}
+              {{"locMeuble"|trans}}
+          </label>
+        </div>
+          {{form_errors(edit_location_form.meuble)}}
+      </div>
+      <div class="form-group">
+        <div class="checkbox">
+          <label>
+              {{form_widget(edit_location_form.interphone)}}
+              {{"locInterphone"|trans}}
+          </label>
+        </div>
+          {{form_errors(edit_location_form.interphone)}}
+      </div>
+      <div class="form-group">
+        <div class="checkbox">
+          <label>
+              {{form_widget(edit_location_form.ascenseur)}}
+              {{"locAscenseur"|trans}}
+          </label>
+        </div>
+          {{form_errors(edit_location_form.ascenseur)}}
+      </div>
+      <div class="form-group">
+        <div class="checkbox">
+          <label>
+              {{form_widget(edit_location_form.normesAndicap)}}
+              {{"locNormesAndicap"|trans}}
+          </label>
+        </div>
+          {{form_errors(edit_location_form.normesAndicap)}}
+      </div>
+      <div class="form-group label-floating">
+        <label class="control-label">{{"locDescription"|trans}}*</label>
+          {{form_widget(edit_location_form.description, {'attr': {'class': 'form-control'}})}}
+          {{form_errors(edit_location_form.description)}}
+      </div>
+      *{{"champobli"|trans}}
+        {{ form_rest(edit_location_form) }}
+
+      <div class="text-center" style="margin-bottom: 20px;"><input type="submit" class="btn btn-primary" name="modif" value="{{"boutonModif"|trans}}"></div>
+    </form>
+  </div>
+{% endblock %}

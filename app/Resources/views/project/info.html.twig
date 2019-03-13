@@ -1,0 +1,148 @@
+{% extends 'base.html.twig' %}
+
+{% block ariane %}
+  <div class="ariane">
+    <div class="container">
+      <ul>
+        <li>
+          <a href="{{ path('homepage') }}">{{"accueil"|trans}}</a> /
+        </li>
+        <li>
+          <a href="{{ path('indexLocation') }}">{{"listLoca"|trans}}</a> /
+        </li>
+        <li>
+          <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')) }}">Information</a>
+        </li>
+        <li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
+
+{% block headerBackground %}
+  <div class="navbarFixeDefault"></div>
+{% endblock %}
+
+{% block body %}
+<div class="col-md-6 col-md-offset-3 text-center">
+  <h2 class="text-center">{{"infoAnnonce"|trans}}</h2>
+  <iframe
+          width="100%"
+          height="450"
+          frameborder="0" style="border:0"
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAMvG5O9a6rGwDAQUcEyJ0IrjTAOIKu4xc&q={{ location.adresse }}+{{ location.ville }}" allowfullscreen>
+  </iframe>
+    <div class="alert alert-success">
+      <div class="container-fluid">
+        <div class="alert-icon">
+          <i class="material-icons">check</i>
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true"><i class="material-icons">clear</i></span>
+        </button>
+          {{"interesseParAnnonce"|trans}}{{ location.getuser.getemail }}
+      </div>
+    </div>
+    <div class="form-group label-floating">
+      <label>{{"locAdr"|trans}}</label><br/>
+      {{location.adresse}}
+    </div>
+    <div class="form-group label-floating">
+      <label>{{"locVille"|trans}}</label><br/>
+        {{location.ville}}
+    </div>
+    <div class="form-group label-floating">
+      <label>{{"loccp"|trans}}</label><br/>
+
+        {{location.codePostal}}
+    </div>
+    <div class="form-group label-floating">
+      <label>{{"locLoyerCcM"|trans}}</label><br/>
+        {{location.loyerCcM}}
+    </div>
+    <div class="form-group label-floating">
+      <label>{{"locCharges"|trans}}</label><br/>
+        {{location.charges}}
+    </div>
+    <div class="form-group label-floating">
+      <label>{{"locSurfaceBalcon"|trans}}</label><br/>
+        {{location.balcon}}
+    </div>
+    <div class="form-group label-floating">
+      <label>{{"locSurfaceTot"|trans}}</label><br/>
+        {{location.surfaceTot}}
+    </div>
+    <div class="form-group label-floating">
+      <label>{{"locAnneeConst"|trans}}</label><br/>
+        {{location.anneeConst}}
+    </div>
+    <div class="form-group label-floating">
+      <label>{{"locEtage"|trans}}</label><br/>
+        {{location.etage}}
+    </div>
+    <div class="form-group label-floating">
+      <label>{{"locnbPiece"|trans}}</label><br/>
+        {{location.nbPiece}}
+    </div>
+    <div class="form-group label-floating">
+      <label>{{"locnbChambre"|trans}}</label><br/>
+        {{location.nbChambre}}
+    </div>
+    <div class="form-group label-floating">
+      <label>{{"locNbParking"|trans}}</label><br/>
+        {{location.nbParking}}
+    </div>
+    <div class="form-group label-floating">
+      <label>{{"locToiletteSep"|trans}}</label><br/>
+        {% if location.toilette == 1 %}
+      {{"oui"|trans}}
+      {% else %}
+      {{"non"|trans}}
+      {% endif %}
+    </div>
+    <div class="form-group label-floating">
+      <label>{{"locCuisineEqui"|trans}}</label><br/>
+        {% if location.cuisineEquipee == 1 %}
+      {{"oui"|trans}}
+      {% else %}
+      {{"non"|trans}}
+      {% endif %}
+    </div>
+    <div class="form-group label-floating">
+      <label>{{"locMeuble"|trans}}</label><br/>
+        {% if location.meuble == 1 %}
+      {{"oui"|trans}}
+      {% else %}
+      {{"non"|trans}}
+      {% endif %}
+    </div>
+    <div class="form-group label-floating">
+      <label>{{"locInterphone"|trans}}</label><br/>
+        {% if location.interphone == 1 %}
+      {{"oui"|trans}}
+      {% else %}
+      {{"non"|trans}}
+      {% endif %}
+    </div>
+    <div class="form-group label-floating">
+      <label>{{"locAscenseur"|trans}}</label><br/>
+        {% if location.ascenseur == 1 %}
+      {{"oui"|trans}}
+      {% else %}
+      {{"non"|trans}}
+      {% endif %}
+    </div>
+    <div class="form-group label-floating">
+      <label>{{"locNormesAndicap"|trans}}</label><br/>
+        {% if location.normesAndicap == 1 %}
+      {{"oui"|trans}}
+      {% else %}
+      {{"non"|trans}}
+      {% endif %}
+    </div>
+    <div class="form-group label-floating">
+      <label>{{"locDescription"|trans}}</label><br/>
+        {{location.description}}
+    </div>
+</div>
+{% endblock %}
